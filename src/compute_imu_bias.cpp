@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 }
   ROS_INFO("Bias: ax = %f, ay = %f, az = %f", avg_x, avg_y, avg_z);
 */
-    if(abs(imu_data.linear_acceleration.y) > 1 ){
-      ROS_INFO("a_y > 1");
+    if(abs(imu_data.linear_acceleration.x) > 1 ){
+      ROS_INFO("a_x > 1");
       count += 1;
       ROS_INFO("Numbers = %d", count);
     }
