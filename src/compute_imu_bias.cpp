@@ -19,6 +19,8 @@ int main(int argc, char **argv)
   float sum_x = 0,sum_y = 0, sum_z = 0, avg_x = 0, avg_y = 0, avg_z = 0;
   int count = 0;
   while(ros::ok()){
+    /*
+  if (imu_data.linear_acceleration.x !=0 && imu_data.linear_acceleration.y !=0 ){
   sum_x += imu_data.linear_acceleration.x;
   sum_y += imu_data.linear_acceleration.y;
   sum_z += imu_data.linear_acceleration.z;
@@ -26,9 +28,14 @@ int main(int argc, char **argv)
   avg_x = sum_x / count;
   avg_y = sum_y / count;
   avg_z = sum_z / count;
-
+}
   ROS_INFO("Bias: ax = %f, ay = %f, az = %f", avg_x, avg_y, avg_z);
-
+*/
+    if(abs(imu_data.linear_acceleration.y) > 1 ){
+      ROS_INFO("a_y > 1");
+      count += 1;
+      ROS_INFO("Numbers = %d", count);
+    }
   ros::spinOnce();
   rate.sleep();
   }
