@@ -8,7 +8,7 @@ project(imu_bias)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp std_msgs sensor_msgs
+  roscpp std_msgs sensor_msgs UKF
 )
 
 ## System dependencies are found with CMake's conventions
@@ -132,7 +132,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
  add_executable(compute_imu_bias src/compute_imu_bias.cpp)
-
+add_dependencies(compute_imu_bias ${PROJECT_NAME}_gencfg)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -142,7 +142,6 @@ include_directories(
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-
 ## Specify libraries to link a library or executable target against
  target_link_libraries(compute_imu_bias
    ${catkin_LIBRARIES}

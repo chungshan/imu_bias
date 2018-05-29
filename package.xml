@@ -49,10 +49,11 @@
   <!--   <test_depend>gtest</test_depend> -->
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
+  <depend>UKF</depend>
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>roscpp std_msgs sensor_msgs</build_depend>
+  <build_depend>roscpp std_msgs sensor_msgs UKF</build_depend>
   <build_export_depend>roscpp std_msgs sensor_msgs</build_export_depend>
-  <exec_depend>roscpp std_msgs sensor_msgs</exec_depend>
+  <exec_depend>roscpp std_msgs sensor_msgs UKF</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->

@@ -1,8 +1,9 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
 #include <eigen3/Eigen/Dense>
+#include <UKF/output.h>
 sensor_msgs::Imu imu_data;
-
+UKF::output output;
 void imu_cb(const sensor_msgs::Imu::ConstPtr &msg){
   imu_data = *msg;
 }
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 {
   ros::init(argc, argv, "compute_imu_bias");
   ros::NodeHandle nh;
-
+  output.force.x = 1;
   ros::Subscriber imu_sub = nh.subscribe<sensor_msgs::Imu>("/drone1/mavros/imu/data", 10, imu_cb);
 
   ros::Rate rate(50);
