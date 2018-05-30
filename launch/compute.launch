@@ -1,7 +1,8 @@
 <launch>
    <node pkg="imu_bias" name="imu_bias" type="compute_imu_bias" output="screen" >
-     <param name="n" value="101" />
+     <param name="n" value="801" />
      <param name="topic_imu" value="/drone1/mavros/imu/data" />
      <param name="topic_mocap" value="/vrpn_client_node/RigidBody1/pose" />
+     <param name="topic_force" value="/output" />
    </node>
 </launch>
